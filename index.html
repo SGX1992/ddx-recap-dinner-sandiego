@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add('js')</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DDX’26 San Diego VIP Dinner · Case study</title>
+<meta name="description" content="Fourteen design, product and AI leaders from Apple, Mastercard, Sony, Adobe, Netflix, Target, Qualcomm and more at one table: the DDX VIP Dinner hosted by Appsfactory and Edenspiekermann on the eve of DDX’26 San Diego.">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;1,400;1,700&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+:root{
+  --bg:#050505;--card:#0B0B0B;--surface:#0E0E0E;--surface-hi:#171717;
+  --line:#242424;--line-soft:#1A1A1A;
+  --accent:#FFF204;--accent-rgb:255,242,4;
+  --text:#ffffff;--text-dim:#9A9A9A;--text-faint:#5C5C5C;
+  --font:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --serif:Tinos,"Times New Roman",Times,serif;
+  --measure:1160px;--gutter:clamp(18px,4vw,64px);
+  color-scheme:dark;
+}
+html{scroll-behavior:smooth}
+html,body{background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--measure);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--accent)}
+.eyebrow i{display:inline-block;width:22px;height:2px;background:var(--accent)}
+.eyebrow span+span{color:rgba(255,255,255,.7)}
+h2{font-size:clamp(30px,4.6vw,54px);line-height:.98;letter-spacing:-.03em;font-weight:700;text-transform:uppercase;text-wrap:balance;margin-top:14px}
+.lead{font-size:clamp(17px,1.6vw,20px);line-height:1.5;color:rgba(255,255,255,.86);max-width:62ch}
+section{padding:clamp(56px,8vw,112px) 0;border-top:1px solid var(--line-soft)}
+section:first-of-type{border-top:0}
+.small{font-size:13px;color:var(--text-dim);line-height:1.5}
+
+/* masthead */
+.top{position:sticky;top:0;z-index:40;height:56px;background:rgba(5,5,5,.82);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border-bottom:1px solid rgba(255,255,255,.08)}
+.top__in{max-width:var(--measure);margin:0 auto;height:100%;padding:0 var(--gutter);display:flex;align-items:center;gap:14px}
+.brand-mark{width:56px;height:auto}
+.top__title{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--text-dim);white-space:nowrap}
+.top nav{margin-left:auto;display:flex;gap:18px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim)}
+.top nav a{text-decoration:none}
+.top nav a:hover{color:var(--accent)}
+@media (max-width:760px){.top nav{display:none}}
+
+/* hero */
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:min(78vh,720px);display:flex;flex-direction:column;justify-content:flex-end;border-top:0}
+.hero__img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,5,5,.35) 0%,rgba(5,5,5,.05) 40%,rgba(5,5,5,.72) 78%,var(--bg) 100%)}
+.hero .wrap{padding-top:120px;padding-bottom:40px;width:100%}
+.hero h1{margin-top:16px;font-size:clamp(54px,11.5vw,150px);line-height:.86;font-weight:700;letter-spacing:-.045em;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero__meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 28px;font-size:14px;color:rgba(255,255,255,.85)}
+.hero__meta b{font-weight:600;color:#fff}
+.hero__credit{position:absolute;right:var(--gutter);top:76px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.hero__back{margin-top:26px;display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1px solid rgba(255,255,255,.3);border-radius:999px;font-size:13px;font-weight:600;color:#fff;text-decoration:none;transition:border-color .25s ease,background .25s ease,transform .25s cubic-bezier(.16,1,.3,1)}
+.hero__back i{font-style:normal;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.hero__back:hover{border-color:var(--accent);background:rgba(var(--accent-rgb),.1);transform:translateY(-2px)}
+.hero__back:hover i{transform:translateX(-4px)}
+
+/* brief */
+.brief{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:start}
+.brief p+p{margin-top:16px}
+.brief .lead+p{margin-top:20px}
+.brief p{font-size:16px;line-height:1.6;color:rgba(255,255,255,.78);max-width:62ch}
+.numbers{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.numbers div{padding:20px 18px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.numbers strong{display:block;font-size:clamp(34px,4vw,48px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.numbers span{display:block;margin-top:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim)}
+.numbers .hi strong{color:var(--accent)}
+@media (max-width:860px){.brief{grid-template-columns:1fr}}
+
+/* themes */
+.themes{margin-top:48px;display:grid;gap:0;border-top:1px solid var(--line)}
+.theme{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,64px);padding:40px 0;border-bottom:1px solid var(--line)}
+.theme h3{font-size:clamp(24px,3vw,34px);line-height:1.05;letter-spacing:-.025em;font-weight:700;text-wrap:balance}
+.theme h3 span{color:var(--accent)}
+.theme p{margin-top:14px;font-size:16px;line-height:1.6;color:rgba(255,255,255,.78);max-width:60ch}
+.theme .who{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px}
+.theme .who a{display:inline-flex;align-items:center;gap:7px;padding:5px 10px 5px 5px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--text-dim);text-decoration:none}
+.theme .who a:hover{border-color:rgba(255,255,255,.4);color:#fff}
+.theme .who img{width:22px;height:22px;border-radius:50%;object-fit:cover;background:#000}
+.evidence{border-left:2px solid var(--accent);padding-left:18px;align-self:start}
+.evidence .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.evidence .n{margin-top:10px;font-size:clamp(40px,5vw,64px);line-height:.95;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.evidence .n small{font-size:.5em;letter-spacing:-.01em;color:var(--text-dim)}
+.evidence .t{margin-top:10px;font-size:14px;line-height:1.5;color:rgba(255,255,255,.8)}
+.evidence .s{margin-top:8px;font-size:12px;color:var(--text-faint)}
+.evidence .s a{color:var(--text-dim);text-decoration:none;border-bottom:1px solid var(--line)}
+.evidence .s a:hover{color:var(--accent);border-color:var(--accent)}
+.evidence+.evidence{margin-top:26px}
+@media (max-width:860px){.theme{grid-template-columns:1fr}}
+
+/* quotes */
+.quotes{margin-top:44px;columns:2;column-gap:28px}
+.q{break-inside:avoid;margin:0 0 28px;padding:26px 24px 22px;background:var(--card);border:1px solid var(--line)}
+.q blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(19px,1.7vw,23px);line-height:1.34;color:#fff;text-wrap:pretty}
+.q blockquote::before{content:"“";color:var(--accent);margin-right:2px}
+.q blockquote::after{content:"”";color:var(--accent);margin-left:2px}
+.q figcaption{margin-top:18px;display:flex;align-items:center;gap:12px}
+.q figcaption img{width:52px;height:52px;border-radius:50%;object-fit:cover;background:#000;flex:0 0 auto}
+.q figcaption b{display:block;font-size:14px;font-weight:600}
+.q figcaption span{display:block;font-size:12px;color:var(--text-dim);margin-top:2px}
+.q.big{column-span:all;padding:40px 36px;border-color:rgba(var(--accent-rgb),.35);background:linear-gradient(180deg,rgba(var(--accent-rgb),.06),transparent)}
+.q.big blockquote{font-size:clamp(24px,2.8vw,36px);max-width:30ch}
+@media (max-width:760px){.quotes{columns:1}}
+
+/* programme */
+.stages{margin-top:44px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.stage h3{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);padding-bottom:12px;border-bottom:1px solid var(--line)}
+.stage ol{list-style:none}
+.stage li{display:grid;grid-template-columns:52px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line-soft)}
+.stage time{font-size:12px;color:var(--text-dim);font-variant-numeric:tabular-nums;padding-top:2px}
+.stage b{display:block;font-size:14px;font-weight:600;line-height:1.3}
+.stage span{display:block;margin-top:3px;font-size:12px;color:var(--text-dim);line-height:1.4}
+.stage .kind{display:inline-block;margin-top:5px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint)}
+.tables{margin-top:36px;padding:24px;border:1px solid var(--line);background:var(--card)}
+.tables h3{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.tables ul{margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 22px;list-style:none}
+.tables li{font-size:13px;line-height:1.4;color:rgba(255,255,255,.8)}
+.tables li b{color:#fff;font-weight:600}
+.tables li span{display:block;font-size:12px;color:var(--text-dim);margin-top:2px}
+@media (max-width:900px){.stages,.tables ul{grid-template-columns:1fr}}
+
+/* gallery */
+.gallery{margin-top:40px;display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(110px,14vw,190px);gap:8px}
+.gallery figure{overflow:hidden;background:#000;position:relative}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gallery figure:hover img{transform:scale(1.03)}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;font-size:12px;line-height:1.35;color:#fff;background:linear-gradient(0deg,rgba(0,0,0,.72),transparent)}
+.gallery .w3{grid-column:span 3}.gallery .w2{grid-column:span 2}.gallery .w4{grid-column:span 4}.gallery .h2{grid-row:span 2}
+@media (max-width:760px){.gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.gallery .w3,.gallery .w2,.gallery .w4{grid-column:span 2}.gallery .h2{grid-row:span 1}}
+
+/* partners + next */
+.partners{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px}
+.partners span{padding:8px 14px;border:1px solid var(--line);font-size:13px;color:rgba(255,255,255,.82)}
+.partners .lead-p{border-color:rgba(var(--accent-rgb),.5);color:var(--accent)}
+.next{margin-top:44px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.next a{display:block;padding:20px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-decoration:none}
+.next a:hover{background:var(--surface-hi)}
+.next b{display:block;font-size:22px;letter-spacing:-.02em;text-transform:uppercase}
+.next span{display:block;margin-top:6px;font-size:12px;color:var(--text-dim)}
+.next .cta{background:var(--accent);color:#000}
+.next .cta span{color:rgba(0,0,0,.65)}
+@media (max-width:900px){.next{grid-template-columns:repeat(2,1fr)}}
+
+/* sources + footer */
+.sources{margin-top:28px;font-size:13px;line-height:1.55;color:var(--text-dim);columns:2;column-gap:40px}
+.sources li{break-inside:avoid;padding:6px 0;border-bottom:1px solid var(--line-soft)}
+.sources a{color:rgba(255,255,255,.75);text-decoration:none;border-bottom:1px solid var(--line)}
+.sources a:hover{color:var(--accent);border-color:var(--accent)}
+@media (max-width:760px){.sources{columns:1}}
+footer{padding:36px 0 60px;border-top:1px solid var(--line);font-size:12px;color:var(--text-faint);display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center}
+footer img{width:64px}
+@media print{.top{position:static}section{break-inside:auto}.q{break-inside:avoid}}
+/* reveal + motion */
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+.js .reveal{opacity:0;transition:opacity .6s ease var(--d,0s),transform .6s cubic-bezier(.16,1,.3,1) var(--d,0s),filter .5s ease var(--d,0s)}
+.js .reveal.in{opacity:1}
+.js .reveal:not(.word){transform:translateY(26px);will-change:opacity,transform}
+.js .reveal:not(.word).in{transform:none}
+.js .eyebrow.reveal i{width:0;transition:width .5s cubic-bezier(.16,1,.3,1) calc(var(--d,0s) + .15s)}
+.js .eyebrow.reveal.in i{width:22px}
+
+/* fancy text: word-by-word mask reveal, used for headlines/leads/quotes/body copy */
+.split-line{display:inline-block;overflow:hidden;vertical-align:top}
+.js .reveal.word{display:inline-block;transform:translateY(105%);filter:blur(7px);transition:transform .65s cubic-bezier(.16,1,.3,1) var(--d,0s),opacity .4s ease var(--d,0s),filter .55s ease var(--d,0s);will-change:opacity,transform,filter}
+.js .reveal.word.in{transform:translateY(0);filter:blur(0)}
+
+/* hero entrance */
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln>span{display:block;transform:translateY(112%);animation:lnUp .85s cubic-bezier(.16,1,.3,1) forwards}
+.hero h1 .ln:nth-child(1)>span{animation-delay:.18s}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.3s}
+.hero h1 .ln:nth-child(3)>span{animation-delay:.42s}
+@keyframes lnUp{to{transform:translateY(0)}}
+.hero__img{animation:heroScale 1.8s cubic-bezier(.16,1,.3,1) both}
+@keyframes heroScale{from{transform:scale(1.07)}to{transform:scale(1)}}
+.hero .eyebrow{opacity:0;animation:heroFade .6s ease .05s forwards}
+.hero__meta{opacity:0;animation:heroFade .6s ease .58s forwards}
+.hero__back{opacity:0;animation:heroFade .6s ease .72s forwards}
+.hero__credit{opacity:0;animation:heroFade .6s ease .84s forwards}
+@keyframes heroFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* reading progress */
+#progress{position:fixed;top:56px;left:0;height:2px;width:0%;background:var(--accent);z-index:39;transition:width .1s linear}
+@media print{#progress{display:none}}
+
+/* nav active state */
+.top nav a{position:relative;padding-bottom:3px;transition:color .25s ease}
+.top nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-1px;height:1px;background:var(--accent);transition:right .35s cubic-bezier(.16,1,.3,1)}
+.top nav a:hover::after,.top nav a.active::after{right:0}
+.top nav a.active{color:var(--accent)}
+.brand-mark{transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.top__in>a:hover .brand-mark{transform:scale(1.08)}
+
+/* hover polish */
+.q{transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s ease,box-shadow .35s ease}
+.q:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.28);box-shadow:0 18px 36px -18px rgba(0,0,0,.6)}
+.partners span{transition:border-color .25s ease,color .25s ease,transform .25s ease}
+.partners span:hover{border-color:rgba(255,255,255,.4);color:#fff;transform:translateY(-2px)}
+.next a{transition:background .25s ease,transform .25s cubic-bezier(.16,1,.3,1)}
+.next a:hover{transform:translateY(-3px)}
+.next .cta:hover{filter:brightness(1.07)}
+
+/* back to top */
+#toTop{position:fixed;right:20px;bottom:20px;z-index:50;width:46px;height:46px;border-radius:50%;border:0;background:var(--accent);color:#000;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(14px) scale(.88);pointer-events:none;transition:opacity .35s ease,transform .4s cubic-bezier(.16,1,.3,1),background .25s ease;box-shadow:0 10px 26px -8px rgba(0,0,0,.6)}
+#toTop.show{opacity:1;transform:none;pointer-events:auto}
+#toTop:hover{background:#fff}
+@media print{#toTop{display:none}}
+
+/* guests */
+.guests{margin-top:44px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.guests div{padding:22px 20px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card)}
+.guests b{display:block;font-size:20px;letter-spacing:-.02em;line-height:1.1}
+.guests span{display:block;margin-top:8px;font-size:13px;line-height:1.45;color:var(--text-dim)}
+.guests .host{background:rgba(var(--accent-rgb),.08)}
+.guests .host b{color:var(--accent)}
+.roll{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 14px;font-size:22px;font-weight:600;letter-spacing:-.01em}
+.roll span{padding:8px 14px;border:1px solid var(--line);background:var(--card)}
+.roll span.hi{border-color:rgba(var(--accent-rgb),.5);color:var(--accent)}
+.how{margin-top:44px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.how article{padding:26px 24px 28px;border:1px solid var(--line);background:var(--card)}
+.how .k{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.how h3{margin-top:12px;font-size:24px;letter-spacing:-.02em;line-height:1.1}
+.how p{margin-top:12px;font-size:15px;line-height:1.55;color:var(--text-dim)}
+@media (max-width:900px){.guests{grid-template-columns:repeat(2,minmax(0,1fr))}.how{grid-template-columns:1fr}}
+@media (max-width:560px){.guests{grid-template-columns:1fr}.roll{font-size:18px}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top__in">
+    <a href="https://www.ddxconference.com/partner"><img class="brand-mark" src="assets/img/ddx-wordmark.png" alt="DDX"></a>
+    <span class="top__title">San Diego ’26 · VIP Dinner · Case study</span>
+    <nav>
+      <a href="#brief">In brief</a><a href="#room">The evening</a><a href="#voices">Voices</a><a href="#guests">The table</a><a href="#how">How it works</a><a href="#next">Next</a>
+    </nav>
+  </div>
+</header>
+<div id="progress" aria-hidden="true"></div>
+
+<section class="hero">
+  <img class="hero__img" src="assets/img/photos/hero.jpg" alt="Fourteen design and product leaders at one long table at Nolita Hall, San Diego, during the DDX VIP Dinner" fetchpriority="high">
+  <span class="hero__credit">Photos · Desmond Chua</span>
+  <div class="wrap">
+    <div class="eyebrow"><i></i><span>Case study · VIP Dinner</span><span>16 September 2026</span></div>
+    <h1><span class="ln"><span>One table,</span></span><span class="ln"><span>fourteen</span></span><span class="ln"><span><em>leaders.</em></span></span></h1>
+    <div class="hero__meta">
+      <span><b>DDX’26 San Diego VIP Dinner</b></span>
+      <span>Nolita Hall, Little Italy · hosted by Appsfactory &amp; Edenspiekermann</span>
+      <span>Curated by DDX the evening before the conference</span>
+    </div>
+    <a class="hero__back" href="https://www.ddxconference.com/partner"><i>←</i> Partner with DDX</a>
+  </div>
+</section>
+
+<section id="brief">
+  <div class="wrap brief">
+    <div>
+      <div class="eyebrow"><i></i><span>In brief</span></div>
+      <h2>The evening before the stage</h2>
+      <p class="lead" style="margin-top:22px">On the night before DDX’26 San Diego, Appsfactory and its design studio Edenspiekermann hosted fourteen design, product and AI leaders from Apple, Mastercard, Sony, Adobe, Netflix, Target, Qualcomm, Dexcom, Oracle, Ancestry, Travelers, UC San Diego Health and American Specialty Health at one long table at Nolita Hall. No stage, no slides, no name badges.</p>
+      <p>DDX curates the table. For every city we invite a short list of the most senior decision-makers in design, product and innovation, a mix of DDX speakers and the enterprise leaders who rarely appear on a conference stage. The partner hosts the evening and sets the theme; at every seat in San Diego a card read <em>“Your culture eats AI for breakfast.”</em> The conversation ran from the first drink to the last espresso, and every guest was in the room again at 9 AM the next morning when the conference opened.</p>
+      <p>That is the point of the format: three hours of unscripted exchange with the people who sign off on the next design organisation, the next AI feature and the next agency partner, in a setting that no booth or sponsored talk can replace. This page documents the San Diego edition so that the next host knows exactly what to expect.</p>
+    </div>
+    <div class="numbers">
+      <div class="hi"><strong>14</strong><span>Leaders at the table</span></div>
+      <div><strong>13</strong><span>Companies represented</span></div>
+      <div><strong>4</strong><span>DDX speakers among them</span></div>
+      <div><strong>1</strong><span>Host partner</span></div>
+      <div><strong>0</strong><span>Slides</span></div>
+      <div><strong>3</strong><span>Hours of conversation</span></div>
+      <div class="hi"><strong>100%</strong><span>At the conference next morning</span></div>
+      <div><strong>4,000+</strong><span>DDX alumni worldwide</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="room">
+  <div class="wrap">
+    <div class="eyebrow"><i></i><span>The evening</span><span>Photos by Desmond Chua</span></div>
+    <h2>What it looked like</h2>
+    <div class="gallery">
+      <figure class="w4 h2"><img src="assets/img/photos/DSC09363.jpg" alt="The long table at Nolita Hall with the guests mid-conversation over shared plates" loading="lazy"><figcaption>One long table at Nolita Hall, Little Italy: fourteen guests, shared plates, no agenda.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09345.jpg" alt="Three guests talking standing at the entrance of Nolita Hall" loading="lazy"><figcaption>Arrivals: introductions before anyone sits down.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09348.jpg" alt="A table card reading Your culture eats AI for breakfast next to water bottles and glasses" loading="lazy"><figcaption>The host’s theme at every seat: “Your culture eats AI for breakfast.”</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09352.jpg" alt="Guests greeting each other around the table" loading="lazy"><figcaption>The table fills up.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09360.jpg" alt="Guests in conversation across the table under the greenery of Nolita Hall" loading="lazy"><figcaption>Conversations across the table, not down it.</figcaption></figure>
+      <figure class="w3"><img src="assets/img/photos/DSC09362.jpg" alt="Guests listening along one side of the table with sharing platters in front of them" loading="lazy"><figcaption>One side of the table, listening.</figcaption></figure>
+      <figure class="w3"><img src="assets/img/photos/DSC09376.jpg" alt="The full table seen from one end, every seat taken" loading="lazy"><figcaption>Every seat taken.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09372.jpg" alt="Two guests in conversation standing by the open kitchen" loading="lazy"><figcaption>By the open kitchen.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09380.jpg" alt="Two guests talking standing beside the table" loading="lazy"><figcaption>The conversations that continue standing up.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09384.jpg" alt="Two guests in a booth talking over a pizza" loading="lazy"><figcaption>A booth, a pizza, two leaders comparing notes.</figcaption></figure>
+      <figure class="w3"><img src="assets/img/photos/DSC09386.jpg" alt="The host standing at the head of the table talking to seated guests" loading="lazy"><figcaption>A word from the host before dessert.</figcaption></figure>
+      <figure class="w3"><img src="assets/img/photos/DSC09387.jpg" alt="Guests raising glasses along the table" loading="lazy"><figcaption>To San Diego, and to the morning after.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09369.jpg" alt="Wide view of the restaurant with guests at the table and standing groups" loading="lazy"><figcaption>Nolita Hall, late in the evening.</figcaption></figure>
+      <figure class="w2"><img src="assets/img/photos/DSC09355.jpg" alt="Guests at the table with the host standing between them" loading="lazy"><figcaption>The host moves around the table.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="voices">
+  <div class="wrap">
+    <div class="eyebrow"><i></i><span>In their words</span><span>Guests who also spoke at DDX’26 San Diego</span></div>
+    <h2>Three positions from the table</h2>
+    <div class="quotes">
+      <figure class="q big">
+        <blockquote>I strongly believe we are entering a new design renaissance. For years, the industry focused on optimizing convenience and automating the easy things, while leaving humans with the most complex, emotional, and fragmented parts of work. AI is exposing the limits of that approach. The next era of innovation will not belong to the companies that automate the fastest, but to those that intentionally design systems in which humans and intelligent technology can learn, adapt, and make better decisions together.</blockquote>
+        <figcaption><img src="assets/img/speakers/circle/twisha-shah-brandenburg.png" alt=""><div><b>Twisha Shah-Brandenburg</b><span>Principal, Target</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>As AI becomes more capable and generates more machine output, human originality becomes a scarce resource. We need to protect and foster the conditions where humans can continue to create original ideas.</blockquote>
+        <figcaption><img src="assets/img/speakers/circle/stephanie-mencarelli.png" alt=""><div><b>Stephanie Mencarelli</b><span>Vice President of Design, Adobe</span></div></figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>People are chasing the next model or the next tool, but the winners of this era will be those who invest in curating and structuring their context and their knowledge, because tools change every week, but context never gets old.</blockquote>
+        <figcaption><img src="assets/img/speakers/circle/diana-wolosin.png" alt=""><div><b>Diana Wolosin</b><span>Sr. AI Systems Architect, Ads · Netflix</span></div></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="guests">
+  <div class="wrap">
+    <div class="eyebrow"><i></i><span>The table</span><span>Fourteen guests, one host</span></div>
+    <h2>Who was at the table</h2>
+    <div class="roll">
+      <span class="hi">Apple</span><span class="hi">Mastercard</span><span class="hi">Sony</span><span class="hi">Adobe</span><span class="hi">Netflix</span><span class="hi">Target</span><span class="hi">Qualcomm</span><span>Dexcom</span><span>Oracle</span><span>Ancestry</span><span>Travelers</span><span>UC San Diego Health</span><span>American Specialty Health</span>
+    </div>
+    <div class="guests">
+      <div><b>Adobe</b><span>Vice President of Design</span></div>
+      <div><b>Apple</b><span>Design Producer</span></div>
+      <div><b>Mastercard</b><span>Lead AI Engineer</span></div>
+      <div><b>Netflix</b><span>Sr. AI Systems Architect, Ads</span></div>
+      <div><b>Sony</b><span>Director, UX · Senior Manager</span></div>
+      <div><b>Target</b><span>Principal</span></div>
+      <div><b>Qualcomm</b><span>Sr. Director, User Experience</span></div>
+      <div><b>Dexcom</b><span>Senior Director of Global Product Design</span></div>
+      <div><b>Oracle</b><span>Senior Manager, UX Design</span></div>
+      <div><b>Ancestry</b><span>Director, UX</span></div>
+      <div><b>Travelers</b><span>Senior Experience Design Lead</span></div>
+      <div><b>UC San Diego Health</b><span>Director of Design &amp; Strategy</span></div>
+      <div><b>American Specialty Health</b><span>Director, User Experience</span></div>
+      <div class="host"><b>Appsfactory &amp; Edenspiekermann</b><span>Host partner · with Sebastian Gier, DDX</span></div>
+    </div>
+    <p class="small" style="margin-top:22px">Roles as submitted to DDX. Guests are listed by company; names are shared with partners on request.</p>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="eyebrow"><i></i><span>How it works</span><span>The DDX dinner format</span></div>
+    <h2>Curated by DDX, hosted by you</h2>
+    <div class="how">
+      <article><div class="k">01 · The list</div><h3>We curate, you approve</h3><p>DDX builds a priority list of senior design, product and innovation leaders in the host city: enterprise decision-makers first, DDX speakers second. Invitations go out in waves and the partner sees every confirmation.</p></article>
+      <article><div class="k">02 · The evening</div><h3>One table, your theme</h3><p>An invitation-only dinner the night before the conference, twelve to sixteen seats, a venue chosen for conversation rather than show. The host opens with a theme and a short welcome; the rest is unscripted.</p></article>
+      <article><div class="k">03 · The morning after</div><h3>The conversation continues on stage</h3><p>Every guest is back at DDX the next day: at the partner’s talk, in the table talks and at the happy hour. Photos, the guest list and a recap like this one come with the package.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="next">
+  <div class="wrap">
+    <div class="eyebrow"><i></i><span>Host the next table</span></div>
+    <h2>Same table, next city</h2>
+    <div class="next">
+      <a href="https://www.ddxconference.com/london"><b>London</b><span>20 November 2026 · dinners on 19 November</span></a>
+      <a href="https://www.ddxconference.com/tokyo"><b>Tokyo</b><span>12 February 2027</span></a>
+      <a href="https://www.ddxconference.com/dubai"><b>Dubai</b><span>2027</span></a>
+      <a class="cta" href="https://www.ddxconference.com/partner"><b>Host a dinner</b><span>Partner with DDX</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <img src="assets/img/ddx-wordmark.png" alt="DDX">
+  <span>DDX is hosted by FastForward Global. The DDX’26 San Diego VIP Dinner took place on 16 September 2026 at Nolita Hall, San Diego, hosted by Appsfactory and Edenspiekermann. Quotes from the speakers’ DDX submissions.</span>
+  <span>ddxconference.com</span>
+</footer>
+
+<button id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}#progress,#toTop{display:none!important}</style></noscript>
+<script>
+(function(){
+  var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var supportsIO = 'IntersectionObserver' in window;
+
+  /* reading progress */
+  var progress = document.getElementById('progress');
+  if (progress) {
+    var onScroll = function(){
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  }
+
+  /* back to top */
+  var toTop = document.getElementById('toTop');
+  if (toTop) {
+    toTop.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior: reduced ? 'auto' : 'smooth'});
+    });
+    window.addEventListener('scroll', function(){
+      toTop.classList.toggle('show', window.scrollY > window.innerHeight * 0.8);
+    }, {passive:true});
+  }
+
+  /* scrollspy */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.top nav a[href^="#"]'));
+  if (navLinks.length && supportsIO) {
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var link = navLinks.filter(function(a){ return a.getAttribute('href') === '#' + e.target.id; })[0];
+        if (!link) return;
+        navLinks.forEach(function(a){ a.classList.remove('active'); });
+        link.classList.add('active');
+      });
+    }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+    navLinks.forEach(function(a){
+      var sec = document.querySelector(a.getAttribute('href'));
+      if (sec) spy.observe(sec);
+    });
+  }
+
+  /* reveal + count-up (skipped entirely for reduced motion: nothing gets hidden) */
+  if (reduced) return;
+
+  var revealed = new Set();
+
+  function animateDigits(node){
+    var original = node.textContent;
+    var re = /\d[\d,]*/g, m, targets = [];
+    while ((m = re.exec(original))) targets.push({start:m.index, end:m.index + m[0].length, value:parseInt(m[0].replace(/,/g,''),10), comma:m[0].indexOf(',') > -1});
+    if (!targets.length) return;
+    var dur = 900, t0 = null;
+    function step(ts){
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur), eased = 1 - Math.pow(1 - p, 3), out = '', cursor = 0;
+      targets.forEach(function(t){
+        out += original.slice(cursor, t.start);
+        var cur = Math.round(t.value * eased);
+        out += t.comma ? cur.toLocaleString('en-US') : String(cur);
+        cursor = t.end;
+      });
+      out += original.slice(cursor);
+      node.textContent = out;
+      if (p < 1) requestAnimationFrame(step); else node.textContent = original;
+    }
+    requestAnimationFrame(step);
+  }
+
+  function markVisible(el){
+    if (revealed.has(el)) return;
+    revealed.add(el);
+    el.classList.add('in');
+    if (el.matches('.numbers > div')) {
+      var strong = el.querySelector('strong');
+      if (strong && strong.firstChild) animateDigits(strong.firstChild);
+    } else if (el.matches('.evidence')) {
+      var n = el.querySelector('.n');
+      if (n && n.firstChild) animateDigits(n.firstChild);
+    }
+  }
+
+  function revealWords(container){
+    if (revealed.has(container)) return;
+    revealed.add(container);
+    container.querySelectorAll('.reveal.word').forEach(function(w){ w.classList.add('in'); });
+  }
+
+  var io = supportsIO ? new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      if (el.classList.contains('reveal')) markVisible(el); else revealWords(el);
+      io.unobserve(el);
+    });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:.1}) : null;
+
+  function group(containerSel, itemSel, opts){
+    opts = opts || {};
+    var stag = opts.stagger || 0.06, cap = opts.cap == null ? 999 : opts.cap;
+    document.querySelectorAll(containerSel).forEach(function(container){
+      var items = itemSel ? container.querySelectorAll(itemSel) : [container];
+      items.forEach(function(el, i){
+        el.classList.add('reveal');
+        el.style.setProperty('--d', (Math.min(i, cap) * stag).toFixed(3) + 's');
+        if (io) io.observe(el); else markVisible(el);
+      });
+    });
+  }
+
+  /* splits an element's text into masked, individually-staggered words —
+     the "fancy" reveal for headlines, leads, quotes and body copy.
+     Screen readers get the plain original sentence via aria-label. */
+  function splitWords(el){
+    var full = el.textContent;
+    el.setAttribute('aria-label', full);
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    var nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    var wi = 0;
+    nodes.forEach(function(node){
+      var parts = node.textContent.split(/(\s+)/);
+      var frag = document.createDocumentFragment();
+      parts.forEach(function(part){
+        if (part === '') return;
+        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+        var outer = document.createElement('span');
+        outer.className = 'split-line';
+        outer.setAttribute('aria-hidden', 'true');
+        var inner = document.createElement('span');
+        inner.className = 'reveal word';
+        inner.textContent = part;
+        inner.style.setProperty('--d', (Math.min(wi, 30) * 0.018).toFixed(3) + 's');
+        wi++;
+        outer.appendChild(inner);
+        frag.appendChild(outer);
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+
+  function textReveal(selector){
+    document.querySelectorAll(selector).forEach(function(el){
+      splitWords(el);
+      if (io) io.observe(el); else revealWords(el);
+    });
+  }
+
+  try {
+    group('section:not(.hero) .eyebrow', null, {});
+
+    textReveal('#brief h2');
+    textReveal('#brief .lead');
+    textReveal('#brief > .wrap > div:not(.numbers) > p:not(.lead)');
+    textReveal('#voices > .wrap > h2');
+    textReveal('.q blockquote');
+    textReveal('#guests > .wrap > h2');
+    textReveal('#how > .wrap > h2');
+    textReveal('#room > .wrap > h2');
+    textReveal('#next > .wrap > h2');
+
+    group('.numbers', ':scope > div', {stagger:.06});
+    group('.theme .who', ':scope > a', {stagger:.04, cap:6});
+    group('#themes .themes', ':scope > article > aside > .evidence', {stagger:.12});
+    group('.quotes', ':scope > figure > figcaption', {stagger:.03, cap:10});
+    group('.stage', ':scope > ol > li', {stagger:.045, cap:10});
+    group('.tables', ':scope > h3', {stagger:0});
+    group('.tables ul', ':scope > li', {stagger:.035, cap:10});
+    group('.gallery', ':scope > figure', {stagger:.035, cap:12});
+    group('.roll', ':scope > span', {stagger:.03, cap:14});
+    group('.guests', ':scope > div', {stagger:.04, cap:14});
+    group('.how', ':scope > article', {stagger:.1});
+    group('.next', ':scope > a', {stagger:.08});
+    group('footer', null, {});
+  } catch (err) {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* safety net: never leave anything stuck invisible */
+  setTimeout(function(){
+    document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ el.classList.add('in'); });
+  }, 3000);
+})();
+</script>
+</body>
+</html>
